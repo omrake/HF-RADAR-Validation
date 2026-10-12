@@ -11,7 +11,7 @@
 #define THINGSPEAK_MQTT_CLIENT_ID "PC8WHQ4CJBsfAh8aLzImAiE"
 
 // The ThingSpeak device MQTT password.
-#define THINGSPEAK_MQTT_PASSWORD "jMFWoTtr+g/GEGMaUlDmO2iz9"
+#define THINGSPEAK_MQTT_PASSWORD "gF4KNHHIsXylj+/1QxnCb1K49"
 
 //The id of the ThingSpeak channel to publish data to
 #define THINGSPEAK_CHANNEL_ID "3502498"
