@@ -1,17 +1,7 @@
 #include <HardwareSerial.h>
 #include <WalterModem.h>
 #include <inttypes.h>
-
-
-// ThingSpeak MQTT
-
-#define THINGSPEAK_MQTT_USERNAME  "PC8WHQ4CJBsfAh8aLzImAiE"
-#define THINGSPEAK_MQTT_CLIENT_ID "PC8WHQ4CJBsfAh8aLzImAiE"
-#define THINGSPEAK_MQTT_PASSWORD  "gF4KNHHIsXylj+/1QxnCb1K4"
-
-#define THINGSPEAK_CHANNEL_ID "3502498"
-#define THINGSPEAK_TOPIC "channels/" THINGSPEAK_CHANNEL_ID "/publish"
-
+#include <gnssUpload.h>
 
 // GNSS
 
@@ -35,7 +25,7 @@ volatile bool gnssFixRcvd = false;
 
 // LTE
 
-bool lteConnected() {
+bool lteConnect() {
 
   WalterModemNetworkRegState regState =
       modem.getNetworkRegState();
@@ -53,7 +43,7 @@ bool waitForNetwork() {
 
   for (int timeout = 0; timeout < 300; timeout++) {
 
-    if (lteConnected()) {
+    if (lteConnect()) {
       Serial.println("Connected to the network");
       return true;
     }
@@ -67,7 +57,7 @@ bool waitForNetwork() {
 }
 
 
-bool lteConnect() {
+bool NetworkSelect() {
 
   Serial.println("Connecting to LTE...");
 
@@ -259,7 +249,7 @@ bool mqttConnect() {
 
 // SETUP
 
-void setup() {
+void setupGNSS() {
 
   Serial.begin(115200);
 
@@ -302,7 +292,7 @@ void setup() {
 
 // LOOP
 
-void loop() {
+void loopGNSS() {
 
   Serial.println();
   Serial.println("==============================");
